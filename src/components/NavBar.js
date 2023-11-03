@@ -8,7 +8,6 @@ import {
   TwitterIcon,
   DribbbleIcon,
   GithubIcon,
-  LinkArrow,
   LinkedInIcon,
   PinterestIcon,
 } from "./Icons";
@@ -37,9 +36,9 @@ const NavBar = () => {
     <header className="w-full px-32 py-8 font-medium flex items-center justify-between">
       <nav>
         <CustomLink href="/" title="主页" className="mr-4" />
-        <CustomLink href="/about" title="关于" className="mx-4" />
-        <CustomLink href="/project" title="项目" className="mx-4" />
-        <CustomLink href="/articles" title="文章" className="ml-4" />
+        <CustomLink href="/About" title="关于" className="mx-4" />
+        <CustomLink href="/Project" title="项目" className="mx-4" />
+        <CustomLink href="/Articles" title="文章" className="ml-4" />
       </nav>
 
       <nav className="flex items-center justify-center flex-wrap">

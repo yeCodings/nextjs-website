@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import Layout from "@/components/Layout";
-import profilePic from "../../public/images/profile/developer-pic-1.png";
+import profilePic from "../../public/images/profile/jmds-2.png";
 import LightBulb from '../../public/images/svgs/miscellaneous_icons_1.svg'
 import AnimatedText from "@/components/AnimatedText";
 import { LinkArrow } from "@/components/Icons";
@@ -20,7 +20,7 @@ export default function Home() {
         <Layout className="pt-0">
           <div className="flex items-center justify-between w-full ">
             <div className="w-1/2">
-              <Image src={profilePic} alt="YD" className="w-full h-auto" />
+              <Image src={profilePic} alt="YD" className="w-4/5 h-auto ml-20"/>
             </div>
             <div className="w-1/2 flex flex-col items-center self-center">
             <AnimatedText text="Turning Vision Into Reality With Code And Design." className="!text-6xl !text-left"/>
