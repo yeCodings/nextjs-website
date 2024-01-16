@@ -37,7 +37,7 @@ const NavBar = () => {
       <nav>
         <CustomLink href="/" title="主页" className="mr-4" />
         <CustomLink href="/About" title="关于" className="mx-4" />
-        <CustomLink href="/Project" title="项目" className="mx-4" />
+        <CustomLink href="/Projects" title="项目" className="mx-4" />
         <CustomLink href="/Articles" title="文章" className="ml-4" />
       </nav>
 
