@@ -1,12 +1,15 @@
-import Head from "next/head";
 import React from "react";
+import {motion} from "framer-motion";
+
+import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-
 import AnimatedText from "@/components/AnimatedText";
 import Layout from "@/components/Layout";
 import { GithubIcon } from "@/components/Icons";
 import project1 from "../../public/images/projects/crypto-screener-cover-image.jpg";
+
+const FramerImage = motion(Image); 
 
 const FeaturedProject = ({ title, type, link, img, summary, github }) => {
   return (
@@ -21,7 +24,7 @@ const FeaturedProject = ({ title, type, link, img, summary, github }) => {
         target="_blank"
         className="w-2/1 cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={img} alt={title} className="w-full h-auto" />
+        <FramerImage src={img} alt={title} className="w-full h-auto" whileHover={{scale:1.05}} transition={{duration:0.2}}  />
       </Link>
 
       <div className="w-full flex flex-col items-start justify-between pl-6">
@@ -64,7 +67,7 @@ const Project = ({ title, type, link, img, github }) => {
         target="_blank"
         className="w-2/1 cursor-pointer overflow-hidden rounded-lg"
       >
-        <Image src={img} alt={title} className="w-full h-auto" />
+        <FramerImage src={img} alt={title} className="w-full h-auto" whileHover={{scale:1.05}} transition={{duration:0.2}} />
       </Link>
 
       <div className="w-full flex flex-col items-start justify-between mt-4">
