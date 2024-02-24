@@ -49,6 +49,8 @@ const MovieImage = ({ img, link, title }) => {
         ref={imgRef}
         src={img}
         alt={title}
+        priority
+        sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
       />
     </Link>
   );
@@ -58,21 +60,29 @@ const Article = ({ img, title, date, link }) => {
   return (
     <motion.li
       initial={{ y: 200 }}
-      whileInView={{ y: 0, transition: { duration: 0.5,ease: "easeInOut" } }}
+      whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       // viewport={{once:true}}
-      className="relative w-full p-4 py-6 my-4 bg-light text-dark rounded-xl 
-      flex items-center justify-between border border-solid border-dark border-r-4 border-b-4"
+      className="relative w-full p-4 py-6 my-4 bg-light text-dark dark:bg-dark dark:text-light rounded-xl 
+      flex items-center justify-between border border-solid border-dark dark:border-light border-r-4 border-b-4"
     >
-      <MovieImage img={img} title={title} link={link} />
-      <span className="text-primary pl-4 font-semibold">{date}</span>
+      <MovieImage
+        img={img}
+        title={title}
+        link={link}
+        priority
+        sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
+      />
+      <span className="text-primary pl-4 font-semibold dark:text-primaryDark">
+        {date}
+      </span>
     </motion.li>
   );
 };
 
 const FeaturedArticle = ({ title, time, img, summary, link }) => {
   return (
-    <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark rounded-2xl">
-      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark rounded-br-3xl" />
+    <li className="relative col-span-1 w-full p-4 bg-light border border-solid border-dark dark:bg-dark dark:border-light rounded-2xl">
+      <div className="absolute top-0 -right-3 -z-10 w-[101%] h-[103%] rounded-[2rem] bg-dark dark:bg-light rounded-br-3xl" />
       <Link
         href={link}
         target="_blank"
@@ -84,6 +94,8 @@ const FeaturedArticle = ({ title, time, img, summary, link }) => {
           className="w-full h-auto"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.2 }}
+          priority
+          sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
         />
       </Link>
       <Link href={link} target="_blank">
@@ -92,7 +104,9 @@ const FeaturedArticle = ({ title, time, img, summary, link }) => {
         </h2>
       </Link>
       <p className="text-sm mb-2">{summary}</p>
-      <span className="text-primary font-semibold">{time}</span>
+      <span className="text-primary font-semibold dark:text-primaryDark">
+        {time}
+      </span>
     </li>
   );
 };
@@ -105,8 +119,11 @@ const Articles = () => {
         <mate name="description" content="any description" />
       </Head>
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
-        <Layout className="pt-16">
-          <AnimatedText text="Words Can Change The World" className="mb-16" />
+        <Layout className="pt-16 dark:text-light">
+          <AnimatedText
+            text="Words Can Change The World"
+            className="mb-16 dark:text-light"
+          />
           <ul className="grid grid-cols-2 gap-16">
             <FeaturedArticle
               title="Build A Custom Pagination Component In Reactjs From Scratch"
