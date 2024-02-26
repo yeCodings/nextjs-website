@@ -11,6 +11,7 @@ import article2 from "../../public/images/articles/create loading screen in reac
 import article3 from "../../public/images/articles/create modal component in react using react portals.png";
 import article4 from "../../public/images/articles/form validation in reactjs using custom react hook.png";
 import article5 from "../../public/images/articles/smooth scrolling in reactjs.png";
+import TransitionEffect from "@/components/hooks/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -42,7 +43,7 @@ const MovieImage = ({ img, link, title }) => {
         {title}
       </h2>
       <FramerImage
-        className="z-10 w-96 h-auto hidden absolute rounded-lg"
+        className="z-10 w-96 h-auto hidden absolute rounded-lg md:!hidden"
         style={{ x: x, y: y }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1, transition: { duration: 0.2 } }}
@@ -63,7 +64,9 @@ const Article = ({ img, title, date, link }) => {
       whileInView={{ y: 0, transition: { duration: 0.5, ease: "easeInOut" } }}
       // viewport={{once:true}}
       className="relative w-full p-4 py-6 my-4 bg-light text-dark dark:bg-dark dark:text-light rounded-xl 
-      flex items-center justify-between border border-solid border-dark dark:border-light border-r-4 border-b-4"
+      flex items-center justify-between border border-solid border-dark dark:border-light border-r-4 border-b-4
+      sm:flex-col
+      "
     >
       <MovieImage
         img={img}
@@ -72,7 +75,7 @@ const Article = ({ img, title, date, link }) => {
         priority
         sizes="(max-width: 768px) 100vw,(max-width: 1200px) 50vw,33vw"
       />
-      <span className="text-primary pl-4 font-semibold dark:text-primaryDark">
+      <span className="text-primary pl-4 font-semibold dark:text-primaryDark sm:self-start sm:pl-0 xs:text-sm">
         {date}
       </span>
     </motion.li>
@@ -99,7 +102,7 @@ const FeaturedArticle = ({ title, time, img, summary, link }) => {
         />
       </Link>
       <Link href={link} target="_blank">
-        <h2 className="text-2xl font-bold my-2 capitalize hover:underline">
+        <h2 className="text-2xl font-bold my-2 capitalize hover:underline xs:text-lg">
           {title}
         </h2>
       </Link>
@@ -118,13 +121,14 @@ const Articles = () => {
         <title>YeCodings | Articles Page1234143</title>
         <mate name="description" content="any description" />
       </Head>
+      <TransitionEffect />
       <main className="w-full mb-16 flex flex-col items-center justify-center overflow-hidden">
         <Layout className="pt-16 dark:text-light">
           <AnimatedText
             text="Words Can Change The World"
-            className="mb-16 dark:text-light"
+            className="mb-16 dark:text-light lg:!text-7xl sm:mb-8 sm:!text-6xl xs:!text-4xl"
           />
-          <ul className="grid grid-cols-2 gap-16">
+          <ul className="grid grid-cols-2 gap-16 lg:gap-8 md:grid-cols-1 md:gap-y-16">
             <FeaturedArticle
               title="Build A Custom Pagination Component In Reactjs From Scratch"
               summary="Learn how to build a custom pagination component in ReactJS from scratch. 
